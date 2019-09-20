@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e6984a2-fbd8-41d6-a84f-13d19d83f02b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/BalancedParenthesesExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/BasicQueueOperationsExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/BasicStackOperationsExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/MaximumElementExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/RecursiveFibonacciExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ReverseNumberswithaStackExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/RoboticsExercise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/SimpleTextEditorExercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9e6984a2-fbd8-41d6-a84f-13d19d83f02b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +140,7 @@
       <workItem from="1568912815192" duration="44000" />
       <workItem from="1568912891025" duration="11622000" />
       <workItem from="1568964846448" duration="3389000" />
-      <workItem from="1568971226039" duration="13303000" />
+      <workItem from="1568971226039" duration="13660000" />
     </task>
     <servers />
   </component>
