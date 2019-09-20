@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e6984a2-fbd8-41d6-a84f-13d19d83f02b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/BrowserHistoryLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/BrowserHistoryUpgradeLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/DecimaltoBinaryConverterLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/HotPotatoLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/MatchingBracketsLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/MathPotatoLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/PrinterQueueLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/SimpleCalculatorLab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/BalancedParenthesesExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/BasicQueueOperationsExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/BasicStackOperationsExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/MaximumElementExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/RecursiveFibonacciExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/ReverseNumberswithaStackExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/RoboticsExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/SimpleTextEditorExercise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,9 +56,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BrowserHistoryUpgradeLab">
-    <configuration name="BrowserHistoryUpgradeLab" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.BrowserHistoryUpgradeLab" />
+  <component name="RunManager" selected="Application.SimpleTextEditorExercise">
+    <configuration name="BalancedParenthesesExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.BalancedParenthesesExercise" />
       <module name="StacksAndQueues" />
       <extension name="coverage">
         <pattern>
@@ -71,8 +70,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotPotatoLab" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.HotPotatoLab" />
+    <configuration name="BasicStackOperationsExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.BasicStackOperationsExercise" />
       <module name="StacksAndQueues" />
       <extension name="coverage">
         <pattern>
@@ -84,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatchingBracketsLab" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.MatchingBracketsLab" />
+    <configuration name="RecursiveFibonacciExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.RecursiveFibonacciExercise" />
       <module name="StacksAndQueues" />
       <extension name="coverage">
         <pattern>
@@ -97,8 +96,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MathPotatoLab" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.MathPotatoLab" />
+    <configuration name="RoboticsExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.RoboticsExercise" />
       <module name="StacksAndQueues" />
       <extension name="coverage">
         <pattern>
@@ -110,8 +109,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrinterQueueLab" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.PrinterQueueLab" />
+    <configuration name="SimpleTextEditorExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.SimpleTextEditorExercise" />
       <module name="StacksAndQueues" />
       <extension name="coverage">
         <pattern>
@@ -125,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BrowserHistoryUpgradeLab" />
-        <item itemvalue="Application.MathPotatoLab" />
-        <item itemvalue="Application.HotPotatoLab" />
-        <item itemvalue="Application.PrinterQueueLab" />
-        <item itemvalue="Application.MatchingBracketsLab" />
+        <item itemvalue="Application.SimpleTextEditorExercise" />
+        <item itemvalue="Application.BalancedParenthesesExercise" />
+        <item itemvalue="Application.RoboticsExercise" />
+        <item itemvalue="Application.BasicStackOperationsExercise" />
+        <item itemvalue="Application.RecursiveFibonacciExercise" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +148,9 @@
       <workItem from="1568876720791" duration="9489000" />
       <workItem from="1568890820333" duration="895000" />
       <workItem from="1568912815192" duration="44000" />
-      <workItem from="1568912891025" duration="6928000" />
+      <workItem from="1568912891025" duration="11622000" />
+      <workItem from="1568964846448" duration="3389000" />
+      <workItem from="1568971226039" duration="13303000" />
     </task>
     <servers />
   </component>
@@ -176,11 +177,6 @@
           <url>file://$PROJECT_DIR$/src/com/company/MathPotatoLab.java</url>
           <line>23</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/BrowserHistoryUpgradeLab.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
