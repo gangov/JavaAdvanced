@@ -16,35 +16,35 @@ public class IntersectionofTwoMatricesLab {
         int cols = Integer.parseInt(scanner.nextLine());
 
         // building the first matrix
-        String[][] firstMatrix = new String[rows][cols];
-        matrixBuilder(rows, cols, firstMatrix, scanner);
+        char[][] firstMatrix = new char[rows][cols];
+        matrixBuilder(firstMatrix, scanner);
 
         // building the second matrix
-        String[][] secondMatrix = new String[rows][cols];
-        matrixBuilder(rows, cols, secondMatrix, scanner);
+        char[][] secondMatrix = new char[rows][cols];
+        matrixBuilder(secondMatrix, scanner);
 
         // comparing and overwriting the two matrices
         for (int row = 0; row < firstMatrix.length; row++) {
             for (int col = 0; col < firstMatrix[row].length; col++) {
-                if (!firstMatrix[row][col].equals(secondMatrix[row][col])) {
-                    firstMatrix[row][col] = "*";
+                if (!(firstMatrix[row][col] == (secondMatrix[row][col]))) {
+                    firstMatrix[row][col] = '*';
                 }
             }
         }
 
-        for (String[] matrix : firstMatrix) {
-            for (String s : matrix) {
-                System.out.print(s + " ");
+        for (int r = 0; r < firstMatrix.length; r++) {
+            for (int c = 0; c < firstMatrix[r].length; c++) {
+                System.out.print(firstMatrix[r][c] + " ");
             }
             System.out.println();
         }
     }
 
-    private static String[][] matrixBuilder(int rows, int cols, String[][] matrix, Scanner scanner) {
+    private static char[][] matrixBuilder(char[][] matrix, Scanner scanner) {
         for (int row = 0; row < matrix.length; row++) {
             String[] entryRow = scanner.nextLine().split(" ");
             for (int col = 0; col < matrix[row].length; col++) {
-                matrix[row][col] = entryRow[col];
+                matrix[row][col] = entryRow[col].charAt(0);
             }
         }
         return matrix;
