@@ -13,7 +13,7 @@ public class StringMatrixRotationExercise {
         Scanner scanner = new Scanner(System.in);
 
         String command = scanner.nextLine();
-        String rotation = findOpenBracker(command);
+        int rotation = findOpenBracker(command);
 
         //getting the lines for our matrix
         String input = scanner.nextLine();
@@ -36,34 +36,57 @@ public class StringMatrixRotationExercise {
         //initialize matrix
         char[][] matrix = new char[rows][cols];
         matrixBuilder(rows, cols, matrix, worlds);
-        System.out.println();
 
 
         //rotating the matrix
-        if (rotation.equals("90")) {
-            rotate90(matrix);
-        } else if (rotation.equals("180")) {
+        if (rotation == 90) {
+            rotate90(matrix, cols);
+        } else if (rotation == 180) {
             rotate180(matrix);
-        } else if (rotation.equals("270")) {
-            rotate270(matrix);
-        } else if (rotation.equals("360")) {
+        } else if (rotation == 270) {
+            rotate270(matrix, cols);
+        } else if (rotation == 360 || rotation == 0) {
             rotate360(matrix);
         }
     }
 
     private static void rotate360(char[][] matrix) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                System.out.print(matrix[row][col] + "");
+            }
+            System.out.println();
+        }
     }
 
-    private static void rotate270(char[][] matrix) {
+    private static void rotate270(char[][] matrix, int limit) {
+        for (int col = limit - 1; col >= 0; col--) {
+            for (int row = 0; row < matrix.length; row++) {
+                System.out.print(matrix[row][col] + "");
+            }
+            System.out.println();
+        }
     }
 
     private static void rotate180(char[][] matrix) {
+        for (int row = matrix.length - 1; row >= 0; row--) {
+            for (int col = matrix[row].length - 1; col >= 0; col--) {
+                System.out.print(matrix[row][col] + "");
+            }
+            System.out.println();
+        }
     }
 
-    private static void rotate90(char[][] matrix) {
+    private static void rotate90(char[][] matrix, int limit) {
+        for (int col = 0; col < limit; col++) {
+            for (int row = matrix.length - 1; row >= 0 ; row--) {
+                System.out.print(matrix[row][col] + "");
+            }
+            System.out.println();
+        }
     }
 
-    private static String findOpenBracker(String command) {
+    private static int findOpenBracker(String command) {
         StringBuilder input = new StringBuilder(command);
         int start = 0;
         int end = 0;
@@ -75,7 +98,8 @@ public class StringMatrixRotationExercise {
             }
         }
 
-        return input.substring(start + 1, end);
+        int degree = Integer.parseInt(input.substring(start + 1, end));
+        return degree % 360;
     }
 
     private static char[][] matrixBuilder(int rows, int cols, char[][] matrix, ArrayList<String> worlds) {
