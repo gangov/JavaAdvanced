@@ -62,18 +62,45 @@ public class CrossfireExercise {
 
     private static String[][] updateMatrix(String[][] matrix, int row, int col, int radius) {
         //find position
+        // make sure that the bomb works just as in strangeRight method
+        if (row < 0 || col < 0) {
+            strangeLeft(matrix, row, col, radius);
+            strangeRight(matrix, row, col, radius);
+            strangeUp(matrix, row, col, radius);
+            strangeDown(matrix, row, col, radius);
+            fillInTheBlanks(matrix);
 
-        try {
+            return matrix;
+        } else {
             matrix[row][col] = " ";
             deleteLeft(matrix, row, col, radius);
             deleteRight(matrix, row, col, radius);
             deleteUp(matrix, row, col, radius);
             deleteDown(matrix, row, col, radius);
             fillInTheBlanks(matrix);
-        } catch (ArrayIndexOutOfBoundsException e) {
 
+            return matrix;
         }
-        return matrix;
+    }
+
+    private static void strangeDown(String[][] matrix, int row, int col, int radius) {
+
+    }
+
+    private static void strangeUp(String[][] matrix, int row, int col, int radius) {
+
+    }
+
+    private static void strangeRight(String[][] matrix, int row, int col, int radius) {
+        if (radius - col >= 0 && (row >= 0 && row < matrix[row].length)) {
+                        for (int i = 0; i < col + radius + 1; i++) {
+                            matrix[row][i] = " ";
+            }
+        }
+    }
+
+    private static void strangeLeft(String[][] matrix, int row, int col, int radius) {
+
     }
 
     private static String[][] fillInTheBlanks(String[][] matrix) {
