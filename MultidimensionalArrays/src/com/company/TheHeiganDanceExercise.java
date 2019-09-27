@@ -48,7 +48,7 @@ public class TheHeiganDanceExercise {
         matrix[playerLocation[0]][playerLocation[1]] = " O ";
 
         // player health and damage
-        double playerHealth = 18500.00;
+        int playerHealth = 18500;
         double damage = Double.parseDouble(scanner.nextLine());
 
         // Heigan health
@@ -58,15 +58,24 @@ public class TheHeiganDanceExercise {
         boolean wasAvoided = false;
 //        int turn = 1;                                                 //ENABLE THIS IS IF YOU WANT UI DEBUGGING
 
-        while (true) {
+        while (heiganHealth >= 0) {
+            heiganHealth -= damage;
             if (lastAttack.equals("Cloud") && wasAvoided) {
                 playerHealth -= 3500;
+                if (playerHealth <= 0) {
+                    break;
+                }
             }
+
 //            System.out.println("Turn: " + turn++);                    //ENABLE THIS IS IF YOU WANT UI DEBUGGING
             String[] heiganMove = scanner.nextLine().split(" ");
             String attackName = heiganMove[0];
             int row = Integer.parseInt(heiganMove[1]);
             int col = Integer.parseInt(heiganMove[2]);
+            if (heiganHealth <= 0) {
+                lastAttack = attackName;
+                break;
+            }
 
             //prints the damage on the map
             damageDealing(matrix, attackName, row, col);
@@ -77,49 +86,69 @@ public class TheHeiganDanceExercise {
                     wasAvoided = true;
                     if (attackName.equals("Cloud")) {
                         playerHealth -= 3500;
+                        if (playerHealth <= 0) {
+                            break;
+                        }
                     } else if (attackName.equals("Eruption")) {
                         playerHealth -= 6000;
+                        if (playerHealth <= 0) {
+                            break;
+                        }
                     }
                 }
             }
             matrixBuilder(matrix, playerLocation);
-            heiganHealth -= damage;
-            if (playerHealth <= 0) {
-                System.out.println(String.format("Heigan: %.2f", heiganHealth));
-                if (attackName.equals("Cloud")) {
-                    attackName = "Plague Cloud";
-                }
-                System.out.println("Player: Killed by " + attackName);
-                System.out.println("Final position: " + playerLocation[0] + ", " + playerLocation[1]);
-                break;
-            } else if (heiganHealth <= 0) {
-                System.out.println("Heigan: Defeated!");
-                System.out.println("Player: " + (int) playerHealth);
-                System.out.println("Final position: " + playerLocation[0] + ", " + playerLocation[1]);
-                break;
-            }
             lastAttack = attackName;
 //            System.out.println("- - - - - - - - - - - - - - - - -");  //ENABLE THIS IS IF YOU WANT UI DEBUGGING
+        }
+        if (heiganHealth == 0 && playerHealth == 0) {
+            System.out.println("Heigan: Defeated!");
+            System.out.println("Player: Killed by " + lastAttack);
+            System.out.println("Final position: " + playerLocation[0] + ", " + playerLocation[1]);
+        } else if (heiganHealth <= 0) {
+            System.out.println("Heigan: Defeated!");
+            System.out.println("Player: " + (int) playerHealth);
+            System.out.println("Final position: " + playerLocation[0] + ", " + playerLocation[1]);
+        } else if (playerHealth <= 0) {
+            System.out.println(String.format("Heigan: %.2f", heiganHealth));
+            if (lastAttack.equals("Cloud")) {
+                lastAttack = "Plague Cloud";
+            }
+            System.out.println("Player: Killed by " + lastAttack);
+            System.out.println("Final position: " + playerLocation[0] + ", " + playerLocation[1]);
         }
 
     }
 
     private static boolean canAvoid(String[][] matrix, int[] playerLocation) {
-        if (matrix[playerLocation[0] - 1][playerLocation[1]].equals("[ ]") && playerLocation[0] - 1 <= 0) { // checks up
-            playerLocation[0] -= 1;
-            return true;
-        } else if (matrix[playerLocation[0]][playerLocation[1] + 1].equals("[ ]") && playerLocation[1] + 1 < 15) { // checks right
-            playerLocation[1] += 1;
-            return true;
-        } else if (matrix[playerLocation[0] + 1][playerLocation[1]].equals("[ ]") && playerLocation[0] + 1 < 15) { // checks down
-            playerLocation[0] += 1;
-            return true;
-        } else if (matrix[playerLocation[0]][playerLocation[1] - 1].equals("[ ]") && playerLocation[1] - 1 <= 0) { // checks left
-            playerLocation[1] -= 1;
-            return true;
-        } else { // if no move - taking damage
-            return false;
+        int row = playerLocation[0];
+        int col = playerLocation[1];
+
+        if (row - 1 >= 0) { //checks up
+            if (matrix[row - 1][col].equals("[ ]")) {
+                playerLocation[0] -= 1;
+                return true;
+            }
         }
+        if (col + 1 < 15) { //checks right
+            if (matrix[row][col + 1].equals("[ ]")) {
+                playerLocation[1] += 1;
+                return true;
+            }
+        }
+        if (row + 1 < 15) { //checks down
+            if (matrix[row + 1][col].equals("[ ]")) {
+                playerLocation[0] += 1;
+                return true;
+            }
+        }
+        if (col - 1 >= 0) { //checks left
+            if (matrix[row][col - 1].equals("[ ]")) {
+                playerLocation[1] -= 1;
+                return true;
+            }
+        }
+        return false; //taking damage
     }
 
     private static boolean ifWithinArea(String[][] matrix, int[] playerLocation) {
@@ -208,7 +237,6 @@ public class TheHeiganDanceExercise {
             for (int col = 0; col < matrix[row].length; col++) {
                 if (row == playerlocation[0] && col == playerlocation[1]) {
                     System.out.print(" O  ");
-                    ;
                 } else {
                     System.out.print(matrix[row][col] + " ");
                 }
@@ -227,7 +255,6 @@ public class TheHeiganDanceExercise {
         return matrix;
     }
 }
-
 /*
 import java.io.BufferedReader;
 import java.io.IOException;

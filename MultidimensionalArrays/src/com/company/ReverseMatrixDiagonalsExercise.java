@@ -27,16 +27,16 @@ public class ReverseMatrixDiagonalsExercise {
 
         int[][] matrix = new int[rows][];
         matrixBuilder(matrix, scanner);
-        printLowerDiagonals(matrix);
+        printLowerDiagonals(matrix, Integer.parseInt(input[1]));
     }
 
-    private static void printLowerDiagonals(int[][] matrix) {
+    private static void printLowerDiagonals(int[][] matrix, int rowSize) {
         //printing the diagonals starting from the bottom part
-        int row = matrix.length - 1;
-        for (int start = matrix[row].length - 1; start >= 0; start--) {
-            int nextUp = row;
+        int col = matrix.length - 1;
+        for (int start = matrix[col].length - 1; start >= 1; start--) {
+            int nextUp = col;
             int nextRight = start;
-            while (nextUp >= 0 && nextRight <= matrix[row].length - 1) {
+            while (nextUp >= 0 && nextRight <= matrix[col].length - 1) {
                 System.out.print(matrix[nextUp][nextRight] + " ");
                 nextUp--;
                 nextRight++;
@@ -45,21 +45,39 @@ public class ReverseMatrixDiagonalsExercise {
         }
 
         //printing the diagonals starting from the left part
-        int startUp = 0;
-
-        for (int start = matrix.length - 2; start >= 0; start--) {
-//            System.out.println(matrix[start][0]);
-            int upRow = start;
-            int upRight = 0;
-            while (upRow >= 0) {
-                System.out.print(matrix[upRow][upRight] + " "); //might be here
-                upRow--;
-                if (upRow == 0) {
-                    upRight = 0;
-                    break;
+        if (matrix.length <= rowSize) {
+            for (int start = matrix.length - 1; start >= 0; start--) {
+                //            System.out.println(matrix[start][0]);
+                int upRow = start;
+                int upRight = 0;
+                while (upRow >= 0) {
+                    System.out.print(matrix[upRow][upRight] + " "); //might be here
+                    upRow--;
+                    upRight++;
                 }
+                System.out.println();
             }
-            System.out.println();
+        } else {
+            for (int start = matrix.length - 1; start >= 0; start--) {
+                //            System.out.println(matrix[start][0]);
+                int upRow = start;
+                int upRight = 0;
+                int turn = 0;
+                while (upRow >= 0) {
+                    if (upRight > matrix[upRow].length - 1) {
+                        upRight = 0;
+                        upRow--;
+                    } else {
+                        if (turn < matrix[upRow].length) {
+                            System.out.print(matrix[upRow][upRight] + " "); //might be here
+                            turn++;
+                        }
+                        upRow--;
+                        upRight++;
+                    }
+                }
+                System.out.println();
+            }
         }
     }
 
@@ -70,6 +88,8 @@ public class ReverseMatrixDiagonalsExercise {
         return matrix;
     }
 }
+
+
 
 /*
 import java.io.BufferedReader;
