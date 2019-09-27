@@ -48,7 +48,7 @@ public class CrossfireExercise {
             int col = Integer.parseInt(coordinates[1]);
             int radius = Integer.parseInt(coordinates[2]);
 
-            updateMatrix(matrix, row, col, radius);
+            updateMatrix(matrix, row, col, radius, rows, cols);
             command = scanner.nextLine();
         }
 
@@ -60,14 +60,14 @@ public class CrossfireExercise {
         }
     }
 
-    private static String[][] updateMatrix(String[][] matrix, int row, int col, int radius) {
+    private static String[][] updateMatrix(String[][] matrix, int row, int col, int radius, int fixedRow, int fixedCol) {
         //find position
         // make sure that the bomb works just as in strangeRight method
-        if (row < 0 || col < 0) {
+        if (row < 0 || col < 0 || row > matrix.length - 1 || col > matrix[row].length - 1) {
             strangeLeft(matrix, row, col, radius);
             strangeRight(matrix, row, col, radius);
-            strangeUp(matrix, row, col, radius);
-            strangeDown(matrix, row, col, radius);
+            strangeUp(matrix, row, col, radius, fixedRow, fixedCol);
+            strangeDown(matrix, row, col, radius, fixedRow, fixedCol);
             fillInTheBlanks(matrix);
 
             return matrix;
@@ -83,24 +83,36 @@ public class CrossfireExercise {
         }
     }
 
-    private static void strangeDown(String[][] matrix, int row, int col, int radius) {
-
+    private static void strangeDown(String[][] matrix, int row, int col, int radius, int fixedRow, int fixedCol) {
+        if (col >= 0 && col < fixedCol) {
+            for (int i = 0; i <= row + radius; i++) {
+                matrix[i][col] = " ";
+            }
+        }
     }
 
-    private static void strangeUp(String[][] matrix, int row, int col, int radius) {
-
+    private static void strangeUp(String[][] matrix, int row, int col, int radius, int fixedRow, int fixedCol) {
+        if (col >= 0 && col < fixedCol && row > 0) {
+            for (int i = matrix.length - 1; i >= row - radius ; i--) {
+                matrix[i][col] = " ";
+            }
+        }
     }
 
     private static void strangeRight(String[][] matrix, int row, int col, int radius) {
-        if (radius - col >= 0 && (row >= 0 && row < matrix[row].length)) {
-                        for (int i = 0; i < col + radius + 1; i++) {
-                            matrix[row][i] = " ";
+        if (row >= 0 && row < matrix.length && col < 0) {
+            for (int i = 0; i <= col + radius; i++) {
+                matrix[row][i] = " ";
             }
         }
     }
 
     private static void strangeLeft(String[][] matrix, int row, int col, int radius) {
-
+        if (row >= 0 && row < matrix.length && col >= matrix[row].length) {
+            for (int i = matrix[row].length - 1; i >= col - radius; i--) {
+                matrix[row][i] = " ";
+            }
+        }
     }
 
     private static String[][] fillInTheBlanks(String[][] matrix) {
