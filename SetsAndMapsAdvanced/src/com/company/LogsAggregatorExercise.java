@@ -1,8 +1,10 @@
 package com.company;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 /*
 You are given a sequence of access logs in format <IP> <user> <duration>. For example:
@@ -49,12 +51,16 @@ public class LogsAggregatorExercise {
             int seconds = Integer.parseInt(tokens[2]);
 
             logs.putIfAbsent(user, new TreeMap<>());
-            logs.get(user).putIfAbsent(ipAddress, seconds);
-            if (logs.get(user).containsKey(ipAddress)) {
-                logs.get(user).put(ipAddress, logs.get(user).get(ipAddress) + seconds);
-            }
+            logs.get(user).putIfAbsent(ipAddress, 0);
+            logs.get(user).put(ipAddress, logs.get(user).get(ipAddress) + seconds);
+
         }
 
-        System.out.println(logs);
+        logs.entrySet().stream().forEach(pair -> {
+            System.out.printf("%s: %d "
+                    , pair.getKey()
+                    , pair.getValue().values().stream().reduce(0, Integer::sum));
+            System.out.println(pair.getValue().keySet().stream().collect(Collectors.joining(", ", "[", "]")));
+        });
     }
 }
