@@ -23,13 +23,9 @@ public class SetsofElementsExercise {
 
         LinkedHashSet<Integer> first = new LinkedHashSet<>();
         LinkedHashSet<Integer> second = new LinkedHashSet<>();
-        LinkedHashSet<Integer> duplicates = new LinkedHashSet<>();
 
         for (int i = 0; i < total; i++) {
             int num = Integer.parseInt(scanner.nextLine());
-            if (first.contains(num) || second.contains(num)) {
-                duplicates.add(num);
-            }
             if (i < sizes[0]) {
                 first.add(num);
             } else {
@@ -37,8 +33,8 @@ public class SetsofElementsExercise {
             }
         }
 
-        for (Integer duplicate : duplicates) {
-            System.out.print(duplicate + " ");
-        }
+        first.retainAll(second);
+
+        first.forEach(number -> System.out.print(number + " "));
     }
 }

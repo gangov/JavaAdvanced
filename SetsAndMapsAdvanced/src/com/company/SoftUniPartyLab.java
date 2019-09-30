@@ -50,11 +50,13 @@ public class SoftUniPartyLab {
         }
 
         System.out.println(skipped);
-        for (String guest : vipInvitations) {
-            System.out.println(guest);
-        }
-        for (String guest : regularInvitations) {
-            System.out.println(guest);
-        }
+//        for (String guest : vipInvitations) {
+//            System.out.println(guest);
+//        }
+        vipInvitations.forEach(invite -> System.out.println(invite));
+//        for (String guest : regularInvitations) {
+//            System.out.println(guest);
+//        }
+        regularInvitations.forEach(invite -> System.out.println(invite));
     }
 }

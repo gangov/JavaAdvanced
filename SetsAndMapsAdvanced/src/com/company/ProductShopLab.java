@@ -29,16 +29,23 @@ public class ProductShopLab {
             input = scanner.nextLine();
         }
 
-        for (Map.Entry<String, LinkedHashMap<String, Double>> stores : groceryStores.entrySet()) {
-            String store = stores.getKey();
-            LinkedHashMap<String, Double> productAndPriceSet = stores.getValue();
+//        for (Map.Entry<String, LinkedHashMap<String, Double>> stores : groceryStores.entrySet()) {
+////            String store = stores.getKey();
+////            LinkedHashMap<String, Double> productAndPriceSet = stores.getValue();
+////
+////            System.out.println(store + "->");
+////            for (Map.Entry<String, Double> productAndPrice : productAndPriceSet.entrySet()) {
+////                String product = productAndPrice.getKey();
+////                double price = productAndPrice.getValue();
+////                System.out.printf("Product: %s, Price: %.1f%n", product, price);
+////            }
+////        }
 
-            System.out.println(store + "->");
-            for (Map.Entry<String, Double> productAndPrice : productAndPriceSet.entrySet()) {
-                String product = productAndPrice.getKey();
-                double price = productAndPrice.getValue();
-                System.out.printf("Product: %s, Price: %.1f%n", product, price);
-            }
-        }
+        groceryStores.entrySet().stream().forEach(pair -> {
+            System.out.printf("%s->%n", pair.getKey());
+            pair.getValue().entrySet().forEach(productPrice -> {
+                System.out.printf("Product: %s, Price: %.1f%n", productPrice.getKey(), productPrice.getValue());
+            });
+        });
     }
 }

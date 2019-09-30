@@ -48,24 +48,5 @@ public class PopulationCounterExercise {
             input = scanner.nextLine();
         }
 
-        for (Map.Entry<String, LinkedHashMap<String, Integer>> countryAndCity : counterPopulation.entrySet()) {
-            String country = countryAndCity.getKey();
-            LinkedHashMap<String, Integer> cityAndPopulation = countryAndCity.getValue();
-            int totalPopulation = 0;
-
-            for (Map.Entry<String, Integer> cityAndPopulationEntrySet : cityAndPopulation.entrySet()) {
-                String currentCity = cityAndPopulationEntrySet.getKey();
-                Integer currentPopulation = cityAndPopulationEntrySet.getValue();
-                totalPopulation += currentPopulation;
-            }
-            System.out.printf("%s (total population: %d)%n", country, totalPopulation);
-
-            for (Map.Entry<String, Integer> cityAndPopulationEntrySet : cityAndPopulation.entrySet()) {
-                String currentCity = cityAndPopulationEntrySet.getKey();
-                Integer currentPopulation = cityAndPopulationEntrySet.getValue();
-                System.out.printf("=>%s: %d%n", currentCity, currentPopulation);
-                totalPopulation += currentPopulation;
-            }
-        }
     }
 }

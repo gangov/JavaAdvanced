@@ -28,27 +28,34 @@ public class CitiesbyContinentandCountryLab {
             allData.get(continents).get(countries).add(cities);
         }
 
-        for (Map.Entry<String, LinkedHashMap<String, ArrayList<String>>> allDataSet : allData.entrySet()) {
-            String continent = allDataSet.getKey();
-            LinkedHashMap<String, ArrayList<String>> countriesAndCities = allDataSet.getValue();
+//        for (Map.Entry<String, LinkedHashMap<String, ArrayList<String>>> allDataSet : allData.entrySet()) {
+//            String continent = allDataSet.getKey();
+//            LinkedHashMap<String, ArrayList<String>> countriesAndCities = allDataSet.getValue();
+//
+//            System.out.println(continent + ":");
+//            for (Map.Entry<String, ArrayList<String>> countryAndCitySet : countriesAndCities.entrySet()) {
+//                String country = countryAndCitySet.getKey();
+//                ArrayList<String> cities = countryAndCitySet.getValue();
+//                System.out.printf("  %s -> ", country);
+//                // TODO: 28.09.19 why is this not working
+////                cities.forEach(city -> {
+////                    if (cities.indexOf(city) == (cities.size()) - 1) {
+////                        System.out.printf("%s%n", city);
+////                    } else {
+////                        System.out.printf("%s, ", city);
+////                    }
+////                });
+//
+//                System.out.print(String.join(", ", cities));
+//                System.out.println();
+//            }
+//        }
 
-            System.out.println(continent + ":");
-            for (Map.Entry<String, ArrayList<String>> countryAndCitySet : countriesAndCities.entrySet()) {
-                String country = countryAndCitySet.getKey();
-                ArrayList<String> cities = countryAndCitySet.getValue();
-                System.out.printf("  %s -> ", country);
-                // TODO: 28.09.19 why is this not working
-//                cities.forEach(city -> {
-//                    if (cities.indexOf(city) == (cities.size()) - 1) {
-//                        System.out.printf("%s%n", city);
-//                    } else {
-//                        System.out.printf("%s, ", city);
-//                    }
-//                });
-
-                System.out.print(String.join(", ", cities));
-                System.out.println();
-            }
-        }
+        allData.entrySet().stream().forEach(continent -> {
+            System.out.printf("%s:%n", continent.getKey());
+            continent.getValue().forEach((country, cities) -> {
+                System.out.printf("  %s -> %s%n", country, String.join(", ", cities));
+            });
+        });
     }
 }

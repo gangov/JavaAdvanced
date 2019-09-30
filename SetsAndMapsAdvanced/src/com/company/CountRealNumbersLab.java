@@ -25,10 +25,11 @@ public class CountRealNumbersLab {
             }
         }
 
-        for (Map.Entry<Double, Integer> numberAndOccurance : numbers.entrySet()) {
-            double number = numberAndOccurance.getKey();
-            int occurance = numberAndOccurance.getValue();
-            System.out.printf("%.1f -> %d%n", number, occurance);
-        }
+//        for (Map.Entry<Double, Integer> numberAndOccurance : numbers.entrySet()) {
+//            double number = numberAndOccurance.getKey();
+//            int occurance = numberAndOccurance.getValue();
+//            System.out.printf("%.1f -> %d%n", number, occurance);
+//        }
+        numbers.entrySet().stream().forEach(pair -> System.out.printf("%.1f -> %d%n", pair.getKey(), pair.getValue()));
     }
 }

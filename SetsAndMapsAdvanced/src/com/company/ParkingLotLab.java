@@ -37,9 +37,10 @@ public class ParkingLotLab {
         if (parkingLot.isEmpty()) {
             System.out.println("Parking Lot is Empty");
         } else {
-            for (String s : parkingLot) {
-                System.out.println(s);
-            }
+//            for (String s : parkingLot) {
+////                System.out.println(s);
+////            }
+            parkingLot.forEach(plate -> System.out.println(plate + " "));
         }
     }
 }

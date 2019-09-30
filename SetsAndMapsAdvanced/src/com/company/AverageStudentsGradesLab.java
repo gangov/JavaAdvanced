@@ -41,5 +41,13 @@ public class AverageStudentsGradesLab {
             nameAndGrades.getValue().forEach(num -> System.out.printf("%.2f ", num));
             System.out.printf("(avg: %.2f)%n", average);
         }
+
+//        studentsAndGrades.entrySet().stream().forEach(pair -> {
+//            System.out.printf("%s -> ", pair.getKey());
+//            pair.getValue().forEach(number -> System.out.printf("%.2f ", number));
+//            double total = pair.getValue().stream().mapToDouble(num -> num).sum();
+//            double avg = total / pair.getValue().size();
+//            System.out.printf("(avg: %.2f)%n", avg);
+//        });
     }
 }
