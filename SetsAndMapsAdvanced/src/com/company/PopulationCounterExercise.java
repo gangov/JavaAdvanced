@@ -32,21 +32,30 @@ public class PopulationCounterExercise {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
-        LinkedHashMap<String, LinkedHashMap<String, Integer>> counterPopulation = new LinkedHashMap<>();
+        LinkedHashMap<String, LinkedHashMap<String, Long>> counterPopulation = new LinkedHashMap<>();
 
         while (!input.equals("report")) {
             String[] tokens = input.split("\\|");
             String city = tokens[0];
             String country = tokens[1];
-            int population = Integer.parseInt(tokens[2]);
+            long population = Long.parseLong(tokens[2]);
 
             counterPopulation.putIfAbsent(country, new LinkedHashMap<>());
-            if (counterPopulation.containsKey(country)) {
-                counterPopulation.get(country).putIfAbsent(city, population);
-            }
+            counterPopulation.get(country).put(city, population);
+
 
             input = scanner.nextLine();
         }
 
+        counterPopulation.entrySet().stream()
+                .sorted((country1, country2) -> country2.getValue().values().stream().reduce(0L, Long::sum)
+                        .compareTo(country1.getValue().values().stream().reduce(0L, Long::sum)))
+                .forEach(country -> {
+                    System.out.printf("%s (total population: %d)%n", country.getKey(),
+                            country.getValue().values().stream().reduce(0L, Long::sum));
+                    country.getValue().entrySet().stream().sorted((city1, city2) ->
+                            city2.getValue().compareTo(city1.getValue()))
+                            .forEach(city -> System.out.printf("=>%s: %d%n", city.getKey(), city.getValue()));
+                });
     }
 }
