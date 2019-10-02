@@ -13,7 +13,7 @@ On the last line, print the count of all folders, including the root folder.
 public class NestedFoldersLab {
     public static void main(String[] args) {
 
-        String path = "/Users/gangov/IdeaProjects/JavaAdvanced/StreamFilesAndDirectories/src/FilesToUse/Files-and-Streams";
+        String path = "/Users/gangov/IdeaProjects/JavaAdvanced/StreamFilesAndDirectories/src/FilesToUse";
         File file = new File(path);
 
         File[] files = file.listFiles();
