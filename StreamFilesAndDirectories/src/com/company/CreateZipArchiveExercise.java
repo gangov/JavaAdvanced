@@ -1,7 +1,8 @@
 package com.company;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /*
 Write a program that reads three .txt files and creates a zip archive named files.zip. Use FileOutputStream,
@@ -15,7 +16,30 @@ public class CreateZipArchiveExercise {
         String thirdFile = path + "output.txt";
         String[] files = new String[]{firstFile, secondFile, thirdFile};
 
-        FileInputStream input = new FileInputStream("");
+        try {
 
+            byte[] buffer = new byte[1024];
+            FileOutputStream output = new FileOutputStream("/Users/gangov/Desktop/files.zip");
+            ZipOutputStream zipOut = new ZipOutputStream(output);
+
+            for (String file1 : files) {
+                File srcFile = new File(file1);
+                FileInputStream input = new FileInputStream(srcFile);
+                zipOut.putNextEntry(new ZipEntry(srcFile.getName()));
+
+                int length;
+
+                while ((length = input.read(buffer)) > 0) {
+                    zipOut.write(buffer, 0, length);
+                }
+                zipOut.closeEntry();
+                input.close();
+            }
+            zipOut.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
