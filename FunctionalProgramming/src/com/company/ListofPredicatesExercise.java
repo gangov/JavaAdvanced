@@ -31,7 +31,7 @@ public class ListofPredicatesExercise {
             return print;
         };
 
-        for (int i = 1; i < range; i++) {
+        for (int i = 1; i <= range; i++) {
             if (divisible.test(i)) {
                 System.out.print(i + " ");
             }
