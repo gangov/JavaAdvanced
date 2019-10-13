@@ -1,4 +1,4 @@
-package com.company;
+package FirstExamPrep;
 
 import java.util.ArrayList;
 import java.util.Scanner;

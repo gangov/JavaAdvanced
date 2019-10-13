@@ -17,4 +17,9 @@ public class Parent {
         this.name = name;
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.getName(), this.getBirthday());
+    }
 }

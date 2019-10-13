@@ -16,4 +16,9 @@ public class Pokemon {
         this.name = name;
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.getName(), this.getType());
+    }
 }

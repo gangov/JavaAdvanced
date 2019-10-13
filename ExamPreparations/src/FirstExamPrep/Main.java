@@ -1,4 +1,4 @@
-package com.company;
+package FirstExamPrep;
 
 public class Main {
 

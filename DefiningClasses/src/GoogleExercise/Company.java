@@ -22,4 +22,9 @@ public class Company {
         this.department = department;
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %.2f", this.getName(), this.getDepartment(), this.getSalary());
+    }
 }

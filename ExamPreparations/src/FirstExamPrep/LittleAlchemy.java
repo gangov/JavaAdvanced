@@ -1,4 +1,4 @@
-package com.company;
+package FirstExamPrep;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

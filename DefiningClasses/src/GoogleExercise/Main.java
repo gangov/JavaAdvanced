@@ -1,5 +1,6 @@
 package GoogleExercise;
 
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 /*
@@ -33,13 +34,50 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
-
+        LinkedHashMap<String, Person> allPeople = new LinkedHashMap<>();
         while (!input.equals("End")) {
+            String[] tokens = input.split("\\s+");
+            String name = tokens[0];
+            String classToUse = tokens[1];
+            String className = tokens[2];
+            String fourthParam = tokens[3];
+            double salary = 0;
+            if (tokens.length == 5) {
+                salary = Double.parseDouble(tokens[4]);
+            }
+
+            Person person = new Person(name);
+            allPeople.putIfAbsent(person.getName(), person);
+            switch (classToUse) {
+                case "company":
+                    Company company = new Company(className, fourthParam, salary);
+                    allPeople.get(person.getName()).setCompany(company);
+                    break;
+                case "pokemon":
+                    Pokemon pokemon = new Pokemon(className, fourthParam);
+                    allPeople.get(person.getName()).updatePokemonCollection(pokemon);
+                    break;
+                case "parents":
+                    Parent parent = new Parent(className, fourthParam);
+                    allPeople.get(person.getName()).updateParents(parent);
+                    break;
+                case "children":
+                    Child child = new Child(className, fourthParam);
+                    allPeople.get(person.getName()).updateChildren(child);
+                    break;
+                case "car":
+                    Car car = new Car(className, fourthParam);
+                    allPeople.get(person.getName()).setCar(car);
+                    break;
+            }
+
 
 
             input = scanner.nextLine();
         }
 
         String nameToShow = scanner.nextLine();
+
+        allPeople.get(nameToShow).printingTheEnd();
     }
 }
