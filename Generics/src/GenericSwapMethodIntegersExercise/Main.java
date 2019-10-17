@@ -1,8 +1,11 @@
-package GenericSwapMethodStringsExercise;
+package GenericSwapMethodIntegersExercise;
 
 import java.util.*;
 
 /*
+Use the description of the previous problem but now, test your list of generic boxes with Integers.
+
+Previous problem:
 Create a generic method that receives a list containing any type of data and swaps the elements at two given indexes.
 As in the previous problems, read n number of boxes of type String and add them to the list. On the next line, however,
 you will receive a swap command consisting of two indexes. Use the method you've created to swap the elements that
@@ -13,11 +16,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
 
-        List<Box> total = new ArrayList<>();
+        List<GenericSwapMethodIntegersExercise.Box> total = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            String input = scanner.nextLine();
-            Box<String> item = new Box<>(input);
+            int input = Integer.parseInt(scanner.nextLine());
+            GenericSwapMethodIntegersExercise.Box<Integer> item = new GenericSwapMethodIntegersExercise.Box<>(input);
             total.add(item);
         }
 
