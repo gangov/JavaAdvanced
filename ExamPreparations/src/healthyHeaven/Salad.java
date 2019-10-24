@@ -44,6 +44,6 @@ public class Salad {
             sb.append(product);
             sb.append(System.lineSeparator()).trimToSize();
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 }

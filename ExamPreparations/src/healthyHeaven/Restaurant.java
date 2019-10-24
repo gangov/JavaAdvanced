@@ -32,17 +32,18 @@ public class Restaurant {
         return hasSalad;
     }
 
-    public String getHealthiestSalad() {
+    public Salad getHealthiestSalad() {
         String name = "";
         int calories = Integer.MAX_VALUE;
-
+        int i = 0;
         for (Salad datum : data) {
             if (datum.getTotalCalories() < calories) {
+                i++;
                 calories = datum.getTotalCalories();
                 name = datum.getName();
             }
         }
-        return name;
+        return this.data.get(i);
     }
 
     public String generateMenu() {
@@ -51,6 +52,6 @@ public class Restaurant {
         for (Salad datum : data) {
             sb.append(datum);
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 }
